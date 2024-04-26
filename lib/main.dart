@@ -1,41 +1,17 @@
-import 'package:flutter/material.dart'; // Basic Flutter file
+import 'package:flutter/material.dart';
+import 'package:flutter_dice/gradient_container.dart'; // Basic Flutter file
 
-class GradientContainer extends StatelessWidget {
-  // const GradientContainer({key}): super(key: key); or
-  const GradientContainer({super.key});
-
-  @override
-  Widget build(context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.green,
-            Color.fromRGBO(100, 100, 100, 1),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: const Center(
-        child: Text(
-          'Hello World!',
-          style: TextStyle(
-            color: Color.fromRGBO(62, 20, 20, 1),
-            fontSize: 28,
-          ),
-        ), // Text is another widget class. the first param is positional and is the readable text.
-      ), // Center is used to center everything along both axis
-    ); // Basically div - cannot be const, nor can its ancestors
-  } // build s called when this widget is used
-} // Custom Widget; used for reusable widget blocks
+const colorsList = [
+  Colors.green,
+  Color.fromRGBO(100, 100, 100, 1),
+];
 
 void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
         // backgroundColor: Color.fromRGBO(88, 14, 14, 1),
-        body: GradientContainer(),
+        body: GradientContainer(colorsList),
       ), // Scaffold is to organise and style elements
     ), // MaterialApp() is a widget class and this syntax is the cnstructor declaration. This is the root element too, somewhat like <html>
   ); // Calling the runApp() function from flutter/material.dart package; show the App UI
